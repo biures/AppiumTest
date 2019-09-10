@@ -16,9 +16,21 @@ public class LoginFragment {
     }
 
     public void initElements() {
-        emailField = driver.findElement(By.className("android.widget.EditText"));
-        forgotEmailLabel = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[3]/android.view.View/android.view.View[2]/android.widget.Button"));
-        createAccountLabel = driver.findElement(By.id("ow248"));
-        nextButton = driver.findElement(By.id("identifierNext"));
+        long startTime = System.nanoTime();
+        long endTime;
+        boolean shouldContinue = true;
+
+        while (shouldContinue) {
+            try {
+                emailField = driver.findElement(By.className("android.widget.EditText"));
+                forgotEmailLabel = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[3]/android.view.View/android.view.View[2]/android.widget.Button"));
+                createAccountLabel = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[5]/android.widget.Spinner"));
+                nextButton = driver.findElement(By.id("identifierNext"));
+                shouldContinue = false;
+            } catch (Exception e) {
+                endTime = System.nanoTime();
+                if (endTime - startTime >= 5000000000L) shouldContinue = false;
+            }
+        }
     }
 }

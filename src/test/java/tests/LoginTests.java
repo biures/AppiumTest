@@ -32,8 +32,6 @@ public class LoginTests extends BaseClass {
 
         configureEmailAccountFragment.accountOptions.get(0).click();
 
-        Thread.sleep(5000);
-
         LoginFragment loginFragment = new LoginFragment(driver);
         loginFragment.initElements();
 
