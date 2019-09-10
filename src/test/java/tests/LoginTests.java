@@ -11,17 +11,15 @@ import org.junit.Test;
 
 public class LoginTests extends BaseClass {
 
-    WelcomeFragment welcomeFragment;
-
     @Before
     public void bypassWelcomePage() {
-        welcomeFragment = new WelcomeFragment(driver);
+        WelcomeFragment welcomeFragment = new WelcomeFragment(driver);
         welcomeFragment.initElements();
         welcomeFragment.gotItButton.click();
     }
 
     @Test
-    public void addEmailTest() throws InterruptedException {
+    public void addEmailTest() {
         AddEmailInitialFragment addEmailInitialFragment = new AddEmailInitialFragment(driver);
         addEmailInitialFragment.initElements();
 
