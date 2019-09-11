@@ -1,7 +1,7 @@
 package tests;
 
 import configs.BaseClass;
-import fragments.WelcomeFragment;
+import fragments.beforeLogin.WelcomeFragment;
 import org.junit.Assert;
 import org.junit.Test;
 
